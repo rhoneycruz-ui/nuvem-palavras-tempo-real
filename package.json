@@ -1,0 +1,11 @@
+{
+  "name": "nuvem-palavras-tempo-real",
+  "version": "1.0.0",
+  "description": "Nuvem de palavras em tempo real com QR code, Supabase e hospedagem estática.",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "start": "npx serve .",
+    "test": "node --test"
+  }
+}

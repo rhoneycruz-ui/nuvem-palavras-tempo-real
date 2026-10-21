@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Nuvem de palavras ao vivo</title>
+  <meta name="description" content="Uma nuvem construída em conjunto, em tempo real.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232088f5'/%3E%3Ctext x='32' y='46' font-size='40' text-anchor='middle' fill='white'%3E%E2%9C%B3%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/style.css">
+  <script defer src="/vendor/supabase.js"></script>
+  <script defer src="/vendor/d3-cloud.js"></script>
+  <script defer src="/vendor/qrcode.js"></script>
+  <script defer src="/config.js"></script>
+  <script defer src="/src/lib.js"></script>
+  <script defer src="/src/common.js"></script>
+  <script defer src="/src/store.js"></script>
+  <script defer src="/src/cloud.js"></script>
+</head>
+<body class="screen">
+  <header class="screen-header">
+    <span class="logo" aria-hidden="true">✳</span>
+    <span class="event-label" id="brand">NUVEM <strong>AO VIVO</strong></span>
+    <div class="screen-actions">
+      <button id="reset-cloud" class="icon-button" aria-label="Zerar nuvem" title="Zerar nuvem">↺</button>
+      <button id="fullscreen" class="quiet-button" aria-label="Ativar tela cheia">Tela cheia <span aria-hidden="true">⛶</span></button>
+    </div>
+  </header>
+
+  <main class="screen-main">
+    <section class="cloud-panel" aria-label="Nuvem de palavras">
+      <div class="section-label"><span id="cloud-label">NOSSO TIME, EM PALAVRAS</span><span id="connection" role="status">Conectando…</span></div>
+      <div id="cloud-stage">
+        <svg id="cloud" role="img" aria-label="Nuvem de respostas" width="100%" height="100%"></svg>
+        <div id="empty" class="empty-state">
+          <span class="empty-symbol" aria-hidden="true">✳</span>
+          <h1>Cada palavra<br>faz parte de nós.</h1>
+          <p>Escaneie o QR code.<br>A primeira palavra pode ser sua.</p>
+        </div>
+      </div>
+      <footer class="cloud-footer"><span><strong id="count">0</strong> <span id="count-label">respostas</span></span><span id="cloud-note">Construído por todos nós.</span></footer>
+    </section>
+
+    <aside class="participation-panel">
+      <span class="eyebrow">SUA VOZ FAZ PARTE</span>
+      <h2>Entre nessa<br>nuvem.</h2>
+      <div id="qr" class="qr" aria-label="QR code para participar"></div>
+      <p>Aponte a câmera do celular<br>e envie sua palavra.</p>
+      <a id="participate-link" href="responder.html">Participar pelo link <span aria-hidden="true">↗</span></a>
+    </aside>
+  </main>
+
+  <dialog id="reset-dialog" class="reset-dialog">
+    <form method="dialog">
+      <button class="dialog-close" value="cancel" aria-label="Fechar">×</button>
+      <span class="eyebrow">CONTROLE DO EVENTO</span>
+      <h2>Zerar a nuvem?</h2>
+      <p>As respostas atuais serão retiradas da tela, mas continuarão guardadas no histórico.</p>
+      <p id="reset-note"></p>
+      <label for="admin-code">Código de administrador</label>
+      <input id="admin-code" type="password" autocomplete="off">
+      <p id="reset-feedback" role="status"></p>
+      <div class="dialog-actions">
+        <button value="cancel" class="secondary-button">Cancelar</button>
+        <button id="confirm-reset" value="default" class="danger-button">Zerar agora</button>
+      </div>
+    </form>
+  </dialog>
+  <noscript>Ative o JavaScript para acompanhar a nuvem e participar.</noscript>
+</body>
+</html>

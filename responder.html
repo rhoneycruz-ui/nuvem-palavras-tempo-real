@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Participe · Nuvem de palavras ao vivo</title>
+  <meta name="description" content="Envie sua palavra para a nuvem.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232088f5'/%3E%3Ctext x='32' y='46' font-size='40' text-anchor='middle' fill='white'%3E%E2%9C%B3%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/style.css">
+  <script defer src="/vendor/supabase.js"></script>
+  <script defer src="/config.js"></script>
+  <script defer src="/src/lib.js"></script>
+  <script defer src="/src/common.js"></script>
+  <script defer src="/src/store.js"></script>
+  <script defer src="/src/respond.js"></script>
+</head>
+<body class="respond-page">
+  <header class="respond-header">
+    <span class="logo" aria-hidden="true">✳</span>
+    <span class="event-label" id="brand">NUVEM <strong>AO VIVO</strong></span>
+  </header>
+  <main class="respond-main">
+    <span class="eyebrow">A SUA PALAVRA CONTA</span>
+    <h1 id="question">O que torna nosso time incrível?</h1>
+    <form id="answer-form">
+      <label for="answer">Uma palavra ou expressão curta</label>
+      <div class="input-wrap">
+        <input id="answer" name="answer" type="text" minlength="2" maxlength="30" autocomplete="off" required aria-describedby="hint feedback" placeholder="Escreva aqui" disabled>
+        <span id="length" aria-hidden="true">0/30</span>
+      </div>
+      <p id="hint">Sua resposta aparecerá na nuvem. Não inclua dados pessoais.</p>
+      <button id="submit" class="primary-button" disabled>Conectando… <span aria-hidden="true">↗</span></button>
+      <p id="feedback" role="status" aria-live="polite"></p>
+    </form>
+    <section id="success" hidden aria-live="polite">
+      <span class="success-mark" aria-hidden="true">✓</span>
+      <h2>Sua voz já faz parte.</h2>
+      <p><strong id="sent-answer"></strong> foi enviada para a nuvem.</p>
+      <button id="again" class="secondary-button">Enviar outra palavra</button>
+    </section>
+  </main>
+  <noscript>Ative o JavaScript para enviar sua resposta.</noscript>
+</body>
+</html>
